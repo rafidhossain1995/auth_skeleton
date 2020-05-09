@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { apiURL } from '../util/apiURL';
+import {signUp} from "../util/fireBaseFunctions"
+import axios from "axios"
 
 export default function SignUp() {
     const [email, setEmail] = useState("");
@@ -11,7 +13,10 @@ export default function SignUp() {
     const handleSubmit = async e => {
         e.preventDefault();
         try {
-            // await axios.post(`${API}/api/users`, { id: res.user.uid, email });      
+            // await axios.post(`${API}/api/users`, { id: res.user.uid, email });  
+            let res = await signUp(email, password)
+            debugger    
+            await axios.post(`${API}/api/users`, {id:res.user.uid, email})
             history.push("/")
         } catch (err) {
             

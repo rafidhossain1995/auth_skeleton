@@ -1,7 +1,7 @@
--- DROP DATABASE IF EXISTS auth_project;
--- CREATE DATABASE auth_project;
+DROP DATABASE IF EXISTS auth_project;
+CREATE DATABASE auth_project;
 
--- \c auth_project;
+\c auth_project;
 
 DROP TABLE IF EXISTS users;
 

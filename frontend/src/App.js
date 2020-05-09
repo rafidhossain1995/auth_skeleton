@@ -6,10 +6,12 @@ import Home from './components/Home';
 import Users from './components/Users';
 import SignUp from './components/SignUp';
 import Login from './components/Login';
+import AuthProvider from "./providers/AuthProviders"
 
 function App() {
   return (
     <div className="App">
+    <AuthProvider>
      <NavBar />
      <Switch>
         <Route exact path="/" >
@@ -25,6 +27,7 @@ function App() {
           <Login />
         </Route>
      </Switch>
+     </AuthProvider>
     </div>
   );
 }

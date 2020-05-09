@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { apiURL } from "../util/apiURL";
+import {login} from "../util/fireBaseFunctions"
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -12,6 +13,7 @@ export default function Login() {
     e.preventDefault();
     try {
       // await axios.post(`${API}/api/users`, { id: res.user.uid, email });
+      let res = await login(email, password)
       history.push("/");
     } catch (err) {}
   };
@@ -30,6 +32,7 @@ export default function Login() {
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
           value={password}
+          autoCapitalize = "on"
         />
         <button type="submit">Login</button>
       </form>
